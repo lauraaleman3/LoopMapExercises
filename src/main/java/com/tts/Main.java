@@ -5,58 +5,44 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+// // Created an array list
+        List<Integer> a = new ArrayList<>();
+        int i = 0;
+        int product = 1;
+        int sum = 0;
 
-        System.out.println("Please enter a number.");
-        int numOne = Integer.parseInt(scanner.next());
+        Scanner in = new Scanner(System.in);
 
-        System.out.println("Please enter a second number.");
-        int numTwo = Integer.parseInt(scanner.next());
+        while (i < 5) {
+            System.out.println("Please enter a number:");
+            a.add(in.nextInt());
+            i++;
+        }
+        Collections.sort(a);
+        for(int z : a){
+            product *= z;
+        }
+        for(int w : a){
+            sum += w;
+        }
 
-        System.out.println("Please enter a third number.");
-        int numThree = Integer.parseInt(scanner.next());
+        // // For array list
+        System.out.println("Numbers in an array list: " + a);
 
-        System.out.println("Please enter a fourth number.");
-        int numFour = Integer.parseInt(scanner.next());
-
-        System.out.println("Please enter a fifth number.");
-        int numFive = Integer.parseInt(scanner.next());
-
-        List<Integer> intList = new ArrayList<>();
-
-        intList.add(numOne);
-        intList.add(numTwo);
-        intList.add(numThree);
-        intList.add(numFour);
-        intList.add(numFive);
-
-        System.out.println("Numbers in an array list: " + intList);
-
- // For Sum calculation
-
-        int sum = numOne + numTwo + numThree + numFour + numFive;
+       // // For Sum calculation
         System.out.println("Sum: " + sum);
 
- // For Product calculation
-        int product = numOne * numTwo * numThree * numFour * numFive;
+        // // For Product calculation
         System.out.println("Product: " + product);
 
- // // For Smallest number
-        int min = intList.get(0);
-        for (int i = 1; i < intList.size(); i++) {
-            int curr = intList.get(i);
-            if (curr < min) {
-                min = curr;
-            }
-        }
-        System.out.println ("The smallest number is: " + min);
+        // // For Smallest number
+        System.out.println("The smallest number is: " + a.get(0));
 
- // For Largest number
-        List<Integer> sortedList = new ArrayList<>(intList);
-        int max = sortedList.get(sortedList.size()-1);
-        System.out.println ("The largest number is: " + max);
+        // // For Largest number
+        System.out.println("The largest number is: " + a.get(4));
 
-// // Car Dealer
+
+// // Exercise 2 Car Dealership
         HashMap<String, String> carMap = new HashMap<>();
 
         carMap.put("Skyline", "18 Nissans");
@@ -69,8 +55,11 @@ public class Main {
         System.out.println ("Are you looking for a Skyline, Miata, X, or a F-150?");
 
 // // Asks What car they are looking for
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println ("If so, which car model are you interested in? " );
 String carModel = scanner.next();
+
         String make = carMap.get(carModel);
         if(make == null){
             System.out.println("\nSorry we don't have that");
